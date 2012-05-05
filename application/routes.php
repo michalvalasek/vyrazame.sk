@@ -33,10 +33,11 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('home.index');
-});
+Route::get('/', array('name' => 'root', 'uses' => 'events@index'));
+Route::get('new', array('name' => 'new_event', 'uses' => 'events@new'));
+Route::get('event/(:num)/attend', array('name' => 'attend', 'uses' => 'events@attend'));
+
+Route::get('about', array('name' => 'about', 'uses' => 'pages@about'));
 
 /*
 |--------------------------------------------------------------------------
