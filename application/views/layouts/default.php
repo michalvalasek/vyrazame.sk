@@ -34,7 +34,7 @@
           <a class="brand" href="/">Vyrážame.sk</a>
           <div class="nav-collapse">
             <ul class="nav">
-              <li class="active"><a href="/">Udalosti</a></li>
+              <li class="active"><a href="/">Aktuálne</a></li>
               <li><a href="/new">Pridať udalosť</a></li>
               <li><a href="/about">O projekte</a></li>
             </ul>
@@ -44,6 +44,13 @@
     </div>
 
     <div class="container">
+
+    	<? if(Session::get('status')): ?>
+		<div class="alert alert-block">
+  			<a class="close" data-dismiss="alert" href="#">×</a>
+  			<?= Session::get('status') ?>
+		</div>
+    	<? endif ?>
 
     	<div class="page-header">
 			<h1><?= $page_header_title ?></h1>
@@ -58,5 +65,7 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="/assets/js/jquery-1.7.2.min.js"></script>
     <script src="/assets/js/bootstrap.min.js"></script>
+
+    <?= (isset($_SERVER['LARAVEL_ENV']) && $_SERVER['LARAVEL_ENV']=='local') ? Anbu::render() : '' ?>
 </body>
 </html>

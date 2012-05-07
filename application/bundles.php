@@ -33,4 +33,4 @@
 |
 */
 
-return array();
+return array('anbu' => array('auto' => true));

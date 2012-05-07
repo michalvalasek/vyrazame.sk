@@ -33,11 +33,13 @@
 |
 */
 
-Route::get('/', array('name' => 'root', 'uses' => 'events@index'));
-Route::get('new', array('name' => 'new_event', 'uses' => 'events@new'));
-Route::get('event/(:num)/attend', array('name' => 'attend', 'uses' => 'events@attend'));
+Route::get('/', array('as' => 'root', 'uses' => 'events@index'));
+Route::get('new', array('as' => 'new_event', 'uses' => 'events@new'));
+Route::post('new', array('as' => 'create_event', 'uses' => 'events@create'));
+Route::get('event/(:num)/attend', array('as' => 'attend', 'uses' => 'events@attend'));
+Route::post('event/(:num)/attend', array('as' => 'will_attend', 'uses' => 'events@will_attend'));
 
-Route::get('about', array('name' => 'about', 'uses' => 'pages@about'));
+Route::get('about', array('as' => 'about', 'uses' => 'pages@about'));
 
 /*
 |--------------------------------------------------------------------------
