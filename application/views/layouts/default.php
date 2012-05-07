@@ -66,6 +66,6 @@
     <script src="/assets/js/jquery-1.7.2.min.js"></script>
     <script src="/assets/js/bootstrap.min.js"></script>
 
-    <?= (isset($_SERVER['LARAVEL_ENV']) && $_SERVER['LARAVEL_ENV']=='local') ? Anbu::render() : '' ?>
+    <?= Config::get('application.anbu_enabled') ? Anbu::render() : '' ?>
 </body>
 </html>
