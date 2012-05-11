@@ -133,6 +133,9 @@
   .carousel-caption {
     position: static;
   }
+  .hero-unit h1 {
+    font-size: 30px;
+  }
 }
 
 @media (max-width: 767px) {

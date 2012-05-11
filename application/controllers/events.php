@@ -6,7 +6,7 @@ class Events_Controller extends Base_Controller {
 
 	public function action_index()
 	{
-		$events = Vyrazame\Event::where('date', '>', time())->order_by('date','asc')->get();
+		$events = Vyrazame\Event::where('date', '>', time()+(2*60*60))->order_by('date','asc')->get();
 
 		$this->layout->page_header_title = "Udalosti";
 		$this->layout->content = View::make('events.index')
@@ -22,6 +22,16 @@ class Events_Controller extends Base_Controller {
 	public function action_create()
 	{
 		$input = Input::all();
+		
+		if (preg_match('/^\d{2}\/\d{2}\/\d{4} \d{2}:\d{2}$/', $input['date'])) {
+			$input['date'] = strtotime($input["date"]);
+		}
+		else if (preg_match('/\d{10}/', $input['date'])) {
+			$input['date'] = $input['date'];
+		}
+		else {
+			$input['date'] = time();
+		}
 		
 		$validation = Validator::make($input, Vyrazame\Event::rules());
 		if ($validation->fails()) {
@@ -59,7 +69,8 @@ class Events_Controller extends Base_Controller {
 		}
 		
 		$attended = Session::get('attended');
-		if (empty($attended) OR !in_array($id, $attended)) {
+		if ($attended==null) $attended = array();
+		if (!in_array($id, $attended)) {
 			$attended[] = $id;
 			Session::put('attended',$attended);
 

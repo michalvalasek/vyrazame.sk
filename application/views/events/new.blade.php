@@ -14,6 +14,8 @@
 
 {{ Form::open() }}
 
+{{ Form::token() }}
+
 <div class="control-group">
 	{{ Form::label('title', 'Kam sa vyráža?') }}
 	<div class="controls">
@@ -33,7 +35,7 @@
 <div class="control-group">
 	{{ Form::label('date', 'Kedy?') }}
 	<div class="controls">
-		{{ Form::text('date') }}
+		{{ Form::text('date',null,array('class'=>'datetime')) }}
 	</div>
 </div>
 

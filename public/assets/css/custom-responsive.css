@@ -1,0 +1,14 @@
+@media (max-width: 480px) {
+  .hero-unit h1 {
+    font-size: 32px;
+    word-wrap: break-word;
+  }
+  .hero-unit h2 {
+    font-size: 22px;
+    word-wrap: break-word;
+  }
+  .hero-unit p {
+    font-size: 16px;
+    word-wrap: break-word;
+  }
+}

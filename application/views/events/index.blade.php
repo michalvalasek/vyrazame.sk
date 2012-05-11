@@ -4,15 +4,13 @@
   		<div class="bar" style="width: 100%;"></div>
 	</div>
     <h1>{{ $event->title }}</h1>
-    <h2>{{ date('d.m.Y \o H:i',$event->date) }} - {{ $event->place }}</h2>
+    <h2>{{ Helpers::formated_event_date($event->date) }} - {{ $event->place }}</h2>
     @if ($event->description)
     <p>{{ $event->description }}</p>
     @endif
     <p><strong>Pozýva:</strong> {{ $event->author }}</p>
     <p><strong>Vyrážajú:</strong> {{ Helpers::attendees_list($event->attendees) }}</p>
 
-	@if (!in_array($event->id,Session::get('attended')))
-    <a href="/event/{{$event->id}}/attend" class="btn btn-primary btn-large">Vyrážam!</a>
-    @endif
+	{{ Helpers::draw_attend_button($event->id) }}
 </div>
 @endforeach

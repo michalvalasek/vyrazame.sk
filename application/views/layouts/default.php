@@ -8,17 +8,15 @@
     <meta name="author" content="Michal Valasek">
 
     <!-- Le styles -->
-    <link href="/assets/css/bootstrap.css" rel="stylesheet">
-    <style>
-      body {
-        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
-      }
-    </style>
-    <link href="/assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/css/custom.css" rel="stylesheet">
+    <link href="/assets/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="/assets/css/custom-responsive.css" rel="stylesheet">
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+    <link rel="stylesheet" type="text/css" href="/assets/css/ui-lightness/jquery-ui-1.7.2.custom.css">
 
     <!-- Le fav and touch icons -->
     <link rel="shortcut icon" href="/assets/ico/favicon.ico">
@@ -31,10 +29,16 @@
 	<div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
+          <a href="/new" class="btn btn-navbar">
+            <span class="icon-plus icon-white"></span>
+          </a>
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-chevron-down"></span>
+          </a>
           <a class="brand" href="/">Vyrážame.sk</a>
           <div class="nav-collapse">
             <ul class="nav">
-              <li class="active"><a href="/">Aktuálne</a></li>
+              <li><a href="/">Aktuálne udalosti</a></li>
               <li><a href="/new">Pridať udalosť</a></li>
               <li><a href="/about">O projekte</a></li>
             </ul>
@@ -65,6 +69,9 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="/assets/js/jquery-1.7.2.min.js"></script>
     <script src="/assets/js/bootstrap.min.js"></script>
+    <script src="/assets/js/jquery-ui-1.7.2.custom.min.js"></script>
+    <script src="/assets/js/timepicker.js"></script>
+    <script src="/assets/js/application.js"></script>
 
     <?= Config::get('application.anbu_enabled') ? Anbu::render() : '' ?>
 </body>
